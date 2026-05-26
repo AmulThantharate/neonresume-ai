@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300d4aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'%3E%3C/path%3E%3Cpolyline points='14 2 14 8 20 8'%3E%3C/polyline%3E%3Cline x1='16' y1='13' x2='8' y2='13'%3E%3C/line%3E%3Cline x1='16' y1='17' x2='8' y2='17'%3E%3C/line%3E%3Cpolyline points='10 9 9 9 8 9'%3E%3C/polyline%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeonResume AI // Resume Generator</title>
+
+    <!-- SEO -->
+    <meta name="description" content="NeonResume AI: AI-powered resume optimizer. Generate ATS-compliant LaTeX moderncv resumes using Google Gemini. 100% client-side, zero data retention." />
+    <meta name="keywords" content="ATS resume, AI resume builder, LaTeX resume, moderncv, Gemini AI, resume optimizer" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NeonResume AI // Resume Generator" />
+    <meta property="og:description" content="Generate ATS-optimized LaTeX resumes powered by Google Gemini. Client-side, private, instant." />
+    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Security headers (supplemental to server-level headers) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <!-- CSP: allow self + Google Fonts + Gemini API + CDN libs for PDF/DOCX parsing -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      connect-src 'self' https://generativelanguage.googleapis.com;
+      img-src 'self' data:;
+      frame-src https://www.overleaf.com;
+      form-action https://www.overleaf.com;
+    " />
+
+    <!-- Google Fonts: JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#080c10] text-[#c9d1d9] antialiased select-none font-mono selection:bg-[#00d4aa]/30 selection:text-[#00ffc8]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
