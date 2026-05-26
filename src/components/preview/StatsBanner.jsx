@@ -10,10 +10,19 @@ export function StatsBanner({ data }) {
   // Calculate dynamic data stats
   const totalBullets = experiences.reduce((acc, job) => acc + (job.bullets?.length || 0), 0);
   
-  const skillCount = (data.skills?.languages ? data.skills.languages.split(',').length : 0) +
-                     (data.skills?.frameworks ? data.skills.frameworks.split(',').length : 0) +
-                     (data.skills?.tools ? data.skills.tools.split(',').length : 0) +
-                     (data.skills?.databases ? data.skills.databases.split(',').length : 0);
+  const getSkillCount = (skillField) => {
+    if (!skillField) return 0;
+    if (Array.isArray(skillField)) return skillField.filter(Boolean).length;
+    if (typeof skillField === 'string') {
+      return skillField.split(',').map(s => s.trim()).filter(Boolean).length;
+    }
+    return 0;
+  };
+
+  const skillCount = getSkillCount(data.skills?.languages) +
+                     getSkillCount(data.skills?.frameworks) +
+                     getSkillCount(data.skills?.tools) +
+                     getSkillCount(data.skills?.databases);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono text-center select-none">

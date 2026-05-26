@@ -2,11 +2,17 @@ import React from 'react';
 import { ShieldAlert, Terminal, Layers, Settings, Database, Sliders } from 'lucide-react';
 
 export function SkillsForm({ data, onChange }) {
-  const skills = data.skills || {
-    languages: '',
-    frameworks: '',
-    tools: '',
-    databases: ''
+  const normalizeSkillField = (field) => {
+    if (!field) return '';
+    if (Array.isArray(field)) return field.filter(Boolean).join(', ');
+    return field;
+  };
+
+  const skills = {
+    languages: normalizeSkillField(data.skills?.languages),
+    frameworks: normalizeSkillField(data.skills?.frameworks),
+    tools: normalizeSkillField(data.skills?.tools),
+    databases: normalizeSkillField(data.skills?.databases)
   };
 
   const handleSkillChange = (e) => {
